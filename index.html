@@ -3,290 +3,647 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>انطلاق - صفحة هبوط عصرية</title>
-    <!-- استدعاء مكتبة Tailwind CSS للتنسيق -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- استدعاء خط عربي جميل (Tajawal) من Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="مشروع بالم هيلز العاصمة الإدارية الجديدة - شقق وفيلات فاخرة بأسعار تنافسية وموقع استراتيجي. سجل اهتمامك الآن.">
+    <meta name="keywords" content="بالم هيلز العاصمة الإدارية, شقق العاصمة الإدارية, فيلات العاصمة الإدارية, Palm Hills New Capital, عقارات مصر, اسعار بالم هيلز">
+    <title>بالم هيلز العاصمة الإدارية | Palm Hills New Capital</title>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* تخصيص الخط لكامل الصفحة */
+        :root {
+            --primary-black: #1a1a1a;
+            --brand-red: #E31E24;
+            --dark-red: #b9151a;
+            --pure-white: #ffffff;
+            --accent-green: #2E8B57;
+            --light-bg: #f8f9fa;
+            --text-gray: #666;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Tajawal', sans-serif;
-        }
-        /* تأثير التمرير السلس عند الضغط على الروابط */
-        html {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.7;
+            color: var(--primary-black);
+            background-color: var(--pure-white);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-        /* تحسينات إضافية للأزرار */
-        .btn-primary {
+
+        /* Header & Hero */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://placehold.co/1920x1080/000000/FFF?text=Palm+Hills+New+Capital+Hero');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--pure-white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .cta-btn {
+            background-color: var(--brand-red);
+            color: var(--pure-white);
+            padding: 16px 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            font-weight: bold;
             transition: all 0.3s ease;
+            border: 2px solid var(--brand-red);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(227, 30, 36, 0.4);
         }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--brand-red); /* Keep text readable on dark bg, or make bg white on hover */
+            background-color: var(--pure-white); 
+            border-color: var(--pure-white);
+            color: var(--brand-red);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            color: var(--primary-black);
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--brand-red);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        /* Features Section (New) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: var(--pure-white);
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--brand-red);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--brand-red);
+            margin-bottom: 20px;
+            background: rgba(227, 30, 36, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Units */
+        #units {
+            background-color: var(--light-bg);
+        }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .unit-card {
+            background: var(--pure-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .unit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .unit-img-wrapper {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .unit-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .unit-card:hover .unit-img {
+            transform: scale(1.1);
+        }
+
+        .unit-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--brand-red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .unit-info {
+            padding: 25px;
+        }
+
+        .unit-info h3 {
+            color: var(--primary-black);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .unit-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+
+        .unit-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Location */
+        #location {
+            text-align: center;
+        }
+
+        .map-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 450px;
+        }
+        
+        .map-wrapper iframe, .map-placeholder {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .map-placeholder {
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #666;
+        }
+
+        /* Contact Form */
+        #contact {
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            color: var(--pure-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .contact-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .contact-features i {
+            color: var(--brand-red);
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+
+        .form-container {
+            flex: 1;
+            max-width: 450px;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 42px;
+            right: 15px;
+            color: var(--text-gray);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 45px 15px 15px;
+            background: rgba(255,255,255,0.9);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--brand-red);
+            background: #fff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--brand-red);
+            color: var(--pure-white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--pure-white);
+            color: var(--brand-red);
+        }
+
+        .msg-box {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+        }
+        .msg-box.error { background-color: rgba(255, 221, 221, 0.9); color: #a00; display: block; }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #888;
+            text-align: center;
+            padding: 30px;
+            border-top: 3px solid var(--brand-red);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            header p { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            .contact-wrapper { flex-direction: column; }
+            .form-container { width: 100%; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body>
 
-    <!-- شريط التنقل (Navbar) -->
-    <nav class="bg-white/80 backdrop-blur-md fixed w-full z-50 border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- الشعار -->
-                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                    <div class="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                        🚀
-                    </div>
-                    <span class="font-bold text-2xl text-slate-900">انطلاق</span>
-                </div>
-                
-                <!-- الروابط (تظهر في الشاشات الكبيرة) -->
-                <div class="hidden md:flex space-x-8 space-x-reverse items-center">
-                    <a href="#features" class="text-slate-600 hover:text-indigo-600 font-medium transition">المميزات</a>
-                    <a href="#testimonials" class="text-slate-600 hover:text-indigo-600 font-medium transition">آراء العملاء</a>
-                    <a href="#pricing" class="text-slate-600 hover:text-indigo-600 font-medium transition">الأسعار</a>
-                </div>
-
-                <!-- زر دعوة لاتخاذ إجراء -->
-                <div class="hidden md:flex">
-                    <a href="#contact" class="bg-indigo-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-indigo-700 transition shadow-lg btn-primary">
-                        ابدأ الآن مجاناً
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- قسم الهيرو (Hero Section) -->
-    <header class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- النص -->
-                <div class="text-center lg:text-right">
-                    <span class="inline-block py-1 px-3 rounded-full bg-indigo-100 text-indigo-700 text-sm font-bold mb-6">
-                        ✨ الإصدار الجديد 2.0 متاح الآن
-                    </span>
-                    <h1 class="text-4xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
-                        حول أفكارك إلى <span class="text-indigo-600">واقع رقمي</span> مذهل
-                    </h1>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        منصة متكاملة تساعدك على بناء مشروعك الريادي، إدارة فريقك، وزيادة مبيعاتك دون أي تعقيدات تقنية. ابدأ رحلتك نحو النجاح اليوم.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#pricing" class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-indigo-700 transition shadow-xl btn-primary text-center">
-                            ابدأ التجربة المجانية
-                        </a>
-                        <a href="#features" class="bg-white text-slate-700 border border-slate-300 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition text-center flex items-center justify-center gap-2">
-                            <span>تعرف على المزيد</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </a>
-                    </div>
-                    <p class="mt-4 text-sm text-slate-500">
-                        * لا نطلب بطاقة ائتمان للتجربة.
-                    </p>
-                </div>
-
-                <!-- الصورة التوضيحية (SVG) -->
-                <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-200 to-pink-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-                    <svg class="relative w-full h-auto drop-shadow-2xl" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="50" y="50" width="400" height="300" rx="20" fill="white" stroke="#e2e8f0" stroke-width="2"/>
-                        <rect x="50" y="50" width="400" height="40" rx="20" fill="#f1f5f9"/>
-                        <circle cx="80" cy="70" r="5" fill="#ef4444"/>
-                        <circle cx="100" cy="70" r="5" fill="#eab308"/>
-                        <circle cx="120" cy="70" r="5" fill="#22c55e"/>
-                        <rect x="90" y="130" width="140" height="20" rx="4" fill="#cbd5e1"/>
-                        <rect x="90" y="170" width="100" height="10" rx="2" fill="#e2e8f0"/>
-                        <rect x="90" y="190" width="100" height="10" rx="2" fill="#e2e8f0"/>
-                        <rect x="90" y="210" width="80" height="10" rx="2" fill="#e2e8f0"/>
-                        
-                        <rect x="270" y="130" width="140" height="180" rx="8" fill="#indigo-50" class="fill-indigo-50"/>
-                        <circle cx="340" cy="200" r="30" fill="#818cf8" fill-opacity="0.5"/>
-                        <rect x="290" y="250" width="100" height="10" rx="2" fill="#c7d2fe"/>
-                        <rect x="310" y="270" width="60" height="10" rx="2" fill="#c7d2fe"/>
-                    </svg>
-                </div>
-            </div>
+    <!-- Header -->
+    <header>
+        <div class="hero-content">
+            <h1>بالم هيلز العاصمة الإدارية</h1>
+            <p>حيث تلتقي الفخامة بالموقع الاستراتيجي في قلب العاصمة الجديدة</p>
+            <a href="#contact" class="cta-btn">
+                <i class="fas fa-paper-plane"></i> سجل اهتمامك الآن
+            </a>
         </div>
     </header>
 
-    <!-- قسم المميزات (Features) -->
-    <section id="features" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">لماذا تختار منصة انطلاق؟</h2>
-                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                    نقدم لك مجموعة من الأدوات القوية المصممة خصيصاً لتسريع نمو أعمالك بأقل جهد ممكن.
-                </p>
+    <!-- About & Features Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لماذا بالم هيلز؟</h2>
+                <p class="section-subtitle">نقدم لك نمط حياة متكامل يجمع بين الهدوء والخدمات العصرية</p>
             </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- ميزة 1 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-200 hover:shadow-lg transition group">
-                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-6 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">سرعة فائقة</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        بنية تحتية متطورة تضمن تحميل صفحاتك في أجزاء من الثانية، مما يحسن تجربة المستخدم وترتيبك في محركات البحث.
-                    </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tree"></i></div>
+                    <h3>مساحات خضراء</h3>
+                    <p>80% من مساحة المشروع مخصصة للحدائق واللاند سكيب لتوفير بيئة صحية ونقية.</p>
                 </div>
-
-                <!-- ميزة 2 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-200 hover:shadow-lg transition group">
-                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">أمان وحماية</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        بياناتك وبيانات عملائك مشفرة بالكامل. نحن نلتزم بأعلى معايير الأمان العالمية لحماية خصوصيتك.
-                    </p>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>أمن وحراسة</h3>
+                    <p>نظام أمني متكامل على مدار 24 ساعة وكاميرات مراقبة بأحدث التقنيات العالمية.</p>
                 </div>
-
-                <!-- ميزة 3 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-200 hover:shadow-lg transition group">
-                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">دعم فني 24/7</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        فريق من الخبراء جاهز للإجابة على استفساراتك وحل أي مشكلة قد تواجهها في أي وقت، ليلاً ونهاراً.
-                    </p>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>موقع استراتيجي</h3>
+                    <p>دقائق من الحي الدبلوماسي والنهر الأخضر، ومباشرة على المحاور الرئيسية.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-swimming-pool"></i></div>
+                    <h3>خدمات ترفيهية</h3>
+                    <p>نوادي رياضية، حمامات سباحة، مناطق للأطفال، ومراكز تجارية متكاملة.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم الإحصائيات -->
-    <section class="bg-indigo-900 py-16 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="text-4xl font-bold mb-2 text-indigo-300">+10k</div>
-                    <div class="text-indigo-100">عميل سعيد</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold mb-2 text-indigo-300">99.9%</div>
-                    <div class="text-indigo-100">وقت تشغيل</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold mb-2 text-indigo-300">+50</div>
-                    <div class="text-indigo-100">أداة مدمجة</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold mb-2 text-indigo-300">24/7</div>
-                    <div class="text-indigo-100">دعم متواصل</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم الأسعار (Pricing) -->
-    <section id="pricing" class="py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">باقات تناسب الجميع</h2>
-                <p class="text-lg text-slate-600">اختر الخطة المناسبة لحجم أعمالك.</p>
+    <!-- Units Section -->
+    <section id="units">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">وحداتنا المميزة</h2>
+                <p class="section-subtitle">تنوع في المساحات والتصاميم لتناسب جميع الاحتياجات</p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
-                <!-- الخطة الأساسية -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">الأساسية</h3>
-                    <div class="text-4xl font-bold text-slate-900 mb-6">$0<span class="text-lg text-slate-500 font-normal">/شهر</span></div>
-                    <ul class="space-y-4 mb-8 text-slate-600">
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> مستخدم واحد</li>
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 5 مشاريع</li>
-                        <li class="flex items-center gap-2"><span class="text-slate-300">✕</span> دعم فني</li>
-                    </ul>
-                    <a href="#" class="block w-full py-3 px-4 bg-slate-100 text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition text-center">
-                        ابدأ مجاناً
-                    </a>
-                </div>
-
-                <!-- الخطة الاحترافية (المميزة) -->
-                <div class="bg-white p-8 rounded-2xl shadow-2xl border-2 border-indigo-600 relative transform scale-105 z-10">
-                    <div class="absolute top-0 right-0 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">الأكثر مبيعاً</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">الاحترافية</h3>
-                    <div class="text-4xl font-bold text-slate-900 mb-6">$29<span class="text-lg text-slate-500 font-normal">/شهر</span></div>
-                    <ul class="space-y-4 mb-8 text-slate-600">
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 5 مستخدمين</li>
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> مشاريع غير محدودة</li>
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> تحليلات متقدمة</li>
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> دعم فني أولوي</li>
-                    </ul>
-                    <a href="#" class="block w-full py-3 px-4 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition text-center shadow-lg">
-                        اشترك الآن
-                    </a>
-                </div>
-
-                <!-- الخطة للشركات -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">الشركات</h3>
-                    <div class="text-4xl font-bold text-slate-900 mb-6">$99<span class="text-lg text-slate-500 font-normal">/شهر</span></div>
-                    <ul class="space-y-4 mb-8 text-slate-600">
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> مستخدمين غير محدودين</li>
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> كل مميزات الاحترافية</li>
-                        <li class="flex items-center gap-2"><span class="text-green-500">✓</span> مدير حساب خاص</li>
-                    </ul>
-                    <a href="#" class="block w-full py-3 px-4 bg-slate-100 text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition text-center">
-                        تواصل معنا
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- الفوتر (Footer) -->
-    <footer class="bg-slate-900 text-slate-300 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center text-white font-bold">🚀</div>
-                        <span class="font-bold text-xl text-white">انطلاق</span>
+            <div class="units-grid">
+                <!-- Unit 1 -->
+                <div class="unit-card">
+                    <div class="unit-img-wrapper">
+                        <span class="unit-badge">متاح الآن</span>
+                        <img src="https://placehold.co/600x400/E31E24/FFF?text=Luxury+Apartments" alt="شقق سكنية" class="unit-img">
                     </div>
-                    <p class="text-slate-400 max-w-sm">
-                        نساعد الشركات الناشئة ورواد الأعمال على بناء مستقبل رقمي مشرق من خلال أدوات بسيطة وفعالة.
-                    </p>
+                    <div class="unit-info">
+                        <h3>شقق سكنية فاخرة</h3>
+                        <div class="unit-details">
+                            <div class="unit-detail-item"><i class="fas fa-ruler-combined"></i> تبدأ من 100 م²</div>
+                            <div class="unit-detail-item"><i class="fas fa-bed"></i> 2-4 غرف</div>
+                        </div>
+                        <p>تشطيبات الترا سوبر لوكس وإطلالات بانورامية على المساحات الخضراء.</p>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">روابط سريعة</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-indigo-400 transition">الرئيسية</a></li>
-                        <li><a href="#features" class="hover:text-indigo-400 transition">المميزات</a></li>
-                        <li><a href="#pricing" class="hover:text-indigo-400 transition">الأسعار</a></li>
-                    </ul>
+
+                <!-- Unit 2 -->
+                <div class="unit-card">
+                    <div class="unit-img-wrapper">
+                        <span class="unit-badge">الأكثر طلباً</span>
+                        <img src="https://placehold.co/600x400/000000/FFF?text=Standalone+Villas" alt="فيلات مستقلة" class="unit-img">
+                    </div>
+                    <div class="unit-info">
+                        <h3>فيلات مستقلة</h3>
+                        <div class="unit-details">
+                            <div class="unit-detail-item"><i class="fas fa-ruler-combined"></i> تبدأ من 300 م²</div>
+                            <div class="unit-detail-item"><i class="fas fa-home"></i> حديقة خاصة</div>
+                        </div>
+                        <p>استقلالية تامة وتصميم معماري فريد يوفر أقصى درجات الخصوصية.</p>
+                    </div>
                 </div>
-                <div>
-                    <h4 class="font-bold text-white mb-4">قانوني</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-indigo-400 transition">سياسة الخصوصية</a></li>
-                        <li><a href="#" class="hover:text-indigo-400 transition">شروط الاستخدام</a></li>
-                    </ul>
+
+                <!-- Unit 3 -->
+                <div class="unit-card">
+                    <div class="unit-img-wrapper">
+                        <span class="unit-badge">فرصة استثمارية</span>
+                        <img src="https://placehold.co/600x400/2E8B57/FFF?text=Town+Houses" alt="تاون هاوس" class="unit-img">
+                    </div>
+                    <div class="unit-info">
+                        <h3>تاون هاوس</h3>
+                        <div class="unit-details">
+                            <div class="unit-detail-item"><i class="fas fa-ruler-combined"></i> تبدأ من 200 م²</div>
+                            <div class="unit-detail-item"><i class="fas fa-users"></i> عائلي</div>
+                        </div>
+                        <p>مزيج مثالي بين الرفاهية والسعر المناسب للعائلات.</p>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-                <p>&copy; 2023 منصة انطلاق. جميع الحقوق محفوظة.</p>
-                <div class="flex space-x-4 space-x-reverse mt-4 md:mt-0">
-                    <!-- أيقونات سوشيال ميديا وهمية -->
-                    <a href="#" class="hover:text-white transition">تويتر</a>
-                    <a href="#" class="hover:text-white transition">لينكد إن</a>
-                    <a href="#" class="hover:text-white transition">فيسبوك</a>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">موقعنا على الخريطة</h2>
+                <p class="section-subtitle">موقع لا يُضاهى في قلب الأحداث</p>
+            </div>
+            <div class="map-wrapper">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt fa-3x" style="color: #ccc; margin-bottom: 20px;"></i>
+                    <p>قم بتضمين كود Google Maps Iframe هنا</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>ابدأ رحلة التملك اليوم</h2>
+                    <p>سجل بياناتك الآن وسيقوم أحد مستشارينا العقاريين بالتواصل معك لتزويدك ببرشور المشروع وقائمة الأسعار المحدثة.</p>
+                    <ul class="contact-features">
+                        <li><i class="fas fa-check-circle"></i> أسعار افتتاحية مميزة</li>
+                        <li><i class="fas fa-check-circle"></i> خطط سداد مرنة تصل لـ 10 سنوات</li>
+                        <li><i class="fas fa-check-circle"></i> استشارة عقارية مجانية</li>
+                    </ul>
+                </div>
+                
+                <div class="form-container">
+                    <form id="submit-to-google-sheet" name="google-sheet">
+                        <div class="form-group">
+                            <label for="name">الاسم بالكامل</label>
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="name" name="Name" placeholder="أدخل اسمك هنا" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <i class="fas fa-phone input-icon"></i>
+                            <input type="tel" id="phone" name="Phone" placeholder="01xxxxxxxxx" pattern="[0-9]{11}" title="يرجى إدخال رقم هاتف صحيح مكون من 11 رقم" required>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            إرسال البيانات <i class="fas fa-arrow-left" style="margin-right: 5px;"></i>
+                        </button>
+                        <div id="msg" class="msg-box"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة &copy; 2024 بالم هيلز العاصمة الإدارية</p>
+            <div style="margin-top: 10px;">
+                <i class="fab fa-facebook fa-lg" style="margin: 0 10px; cursor: pointer;"></i>
+                <i class="fab fa-instagram fa-lg" style="margin: 0 10px; cursor: pointer;"></i>
+                <i class="fab fa-whatsapp fa-lg" style="margin: 0 10px; cursor: pointer;"></i>
             </div>
         </div>
     </footer>
 
+    <script>
+        // *** هام جداً: قم بوضع رابط Google Apps Script الخاص بك هنا ***
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxVQy-AhWOgF1TZzP811SL0rlHnNx5xUa8Sznuc7OzjtJtoqX_UVshJXEWRlJWw2rpP/exec';
+        
+        const form = document.forms['submit-to-google-sheet'];
+        const msgBox = document.getElementById('msg');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // تغيير نص الزر أثناء التحميل
+            const btn = form.querySelector('button');
+            const originalContent = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            btn.disabled = true;
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    // التوجيه لصفحة الشكر عند النجاح
+                    console.log('Success!', response);
+                    window.location.href = 'thankyou.html';
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    msgBox.style.display = 'block';
+                    msgBox.className = 'msg-box error';
+                    msgBox.innerText = 'حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.';
+                    
+                    // إعادة الزر لحالته الطبيعية
+                    btn.innerHTML = originalContent;
+                    btn.disabled = false;
+                });
+        });
+    </script>
 </body>
 </html>
