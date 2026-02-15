@@ -2,15 +2,13 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>شكراً لك - بالم هيلز</title>
     
-    <!-- خط القاهرة -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -39,17 +37,16 @@
         }
     </script>
 
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-slate-50 text-gray-800 font-sans selection:bg-amber-600 selection:text-white min-h-screen flex items-center justify-center p-4 relative">
-<div class="w-full flex items-center justify-center">
+<body class="bg-slate-50 text-gray-800 font-sans selection:bg-amber-600 selection:text-white min-h-screen flex flex-col items-center justify-center p-4 relative overflow-x-hidden">
 
-    <!-- Background Decorative Elements -->
-    <div class="absolute top-0 right-0 w-64 h-64 bg-amber-100 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-50"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 bg-slate-200 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 opacity-50"></div>
+    <div class="fixed inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-amber-100 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-50"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-slate-200 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 opacity-50"></div>
+    </div>
 
-    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl max-w-lg w-full text-center relative z-10 border border-gray-100 animate-fade-in-up">
+    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl max-w-lg w-full text-center relative z-10 border border-gray-100 animate-fade-in-up mx-auto">
         <div class="w-24 h-24 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
             <i data-lucide="check-circle" class="w-12 h-12"></i>
         </div>
@@ -73,8 +70,7 @@
         </div>
     </div>
     
-    <p class="mt-8 text-gray-400 text-sm">سيتم تحويلك للصفحة الرئيسية تلقائياً خلال 30 ثانية...</p>
-</div>
+    <p class="mt-8 text-gray-400 text-sm relative z-10">سيتم تحويلك للصفحة الرئيسية تلقائياً خلال 30 ثانية...</p>
 
     <script>
         // Initialize Lucide Icons
